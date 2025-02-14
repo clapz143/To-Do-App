@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #173157; /* LexMeet Theme */
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo {
+  width: 120px;
+  margin-right: 15px;
+}
