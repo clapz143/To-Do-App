@@ -1,0 +1,319 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Lato:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container-fluid {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to right, #F4512C, #5E1B89);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-title {
+  font-family: 'Roboto Slab', serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.list-group-item {
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease, transform 0.2s;
+  font-weight: bold;
+}
+
+.list-group-item:hover,
+.list-group-item.active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+/* Sidebar Toggle Button (Visible on Mobile) */
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+/* Progress Summary */
+.prio {
+  font-family: 'Roboto Slab', serif;
+  color: #5E1B89;
+  font-weight: bold;
+}
+
+.progress-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.progress-label {
+  min-width: 80px;
+  text-align: left;
+  font-weight: bold;
+  font-family: 'Roboto Slab', serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress {
+  flex-grow: 1;
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.progress-bar {
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+.high {
+  color: #dc3545;
+}
+
+.medium {
+  color: #ffc107; 
+}
+
+.low {
+  color: #007bff;
+}
+
+/* Sidebar Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+    background: linear-gradient(to right, #F4512C, #5E1B89);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    width: 250px;
+    padding: 20px;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .main-content {
+    width: 100vw;
+  }
+}
+
+/* Logo Styling */
+.logo {
+  max-width: 250px;
+  height: auto;
+  display: block;
+  margin-right: auto;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  transition: width 0.3s ease-in-out;
+}
+
+.title {
+  font-family: 'Roboto Slab', serif;
+  color: #F4512C;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    width: 100vw;
+  }
+}
+
+/* Task Container */
+.task-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1200px;
+  align-self: center;
+}
+
+/* Task Input */
+.form-label {
+  font-weight: bold;
+  font-family: 'Roboto Slab', serif;
+}
+
+.input-group-text {
+  background-color: #F4512C;
+  color: white;
+  border: none;
+}
+
+.input-group-text:hover {
+  background-color: #E03920;
+}
+
+/* Task Item */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e0e0e0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.task-item:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+  color: #000 !important;
+}
+
+/* Priority Badge Colors */
+.priority-high {
+  color: #cc0000 !important;
+  font-weight: bold;
+}
+
+.priority-medium {
+  color: #cc8400 !important;
+  font-weight: bold;
+}
+
+.priority-low {
+  color: #0056b3 !important;
+  font-weight: bold;
+}
+
+/* Badge Backgrounds */
+.badge-high {
+  background-color: #cc0000;
+  color: white !important;
+  font-weight: bold;
+}
+
+.badge-medium {
+  background-color: #cc8400;
+  color: white !important;
+  font-weight: bold;
+}
+
+.badge-low {
+  background-color: #0056b3;
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn-success, .btn-danger {
+  font-weight: bold;
+  color: #fff;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.btn-success {
+  background-color: #5E1B89;
+}
+
+.btn-danger {
+  background-color: #F4512C;
+}
+
+.btn-success:hover {
+  background: #471468;
+  transform: scale(1.05);
+}
+
+.btn-danger:hover {
+  background: #C0392B;
+  transform: scale(1.05);
+}
+
+/* Adjust logo size for larger screens */
+@media (min-width: 992px) {
+  .logo {
+    max-width: 300px;
+  }
+}
+
+/* Adjust logo size for smaller screens */
+@media (max-width: 768px) {
+  .logo {
+    max-width: 180px;
+  }
+}
